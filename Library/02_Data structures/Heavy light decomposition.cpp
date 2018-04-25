@@ -19,7 +19,7 @@ struct hld {
         child[u] = best.second;
         return ans;
     }
-    void build (int u, int d = 0, int s = 0, int prev = -1, int p = -1) {
+    void build (int u, int d = 0, int s = 1, int prev = -1, int p = -1) {
         pos[u] = cur++;
         up[u] = prev;
         depth[u] = d;
@@ -50,6 +50,7 @@ struct hld {
     }
     hld (graph &g, int root, vector<int> &val) :
             g(g), val(val), cur(1), tree(ds(1, val.size())) {
+// if segtree from 0 wanted, change cur and s = 0
         child.assign(g.size(), 0);
         pos.assign(g.size(), 0);
         up.assign(g.size(), 0);
